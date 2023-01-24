@@ -27,7 +27,7 @@ INSTALL_WKHTMLTOPDF="True"
 OE_PORT="8069"
 # Choose the Odoo version which you want to install. For example: 16.0, 15.0 or 14.0. When using 'master' the master version will be installed.
 # IMPORTANT! This script contains extra libraries that are specifically needed for Odoo 14.0
-OE_VERSION="16.0"
+OE_VERSION="15.0"
 # Set this to True if you want to install the Odoo enterprise version!
 IS_ENTERPRISE="False"
 # Set this to True if you want to install Nginx!
@@ -75,7 +75,7 @@ sudo apt autoremove -y
 # Set up the timezones
 #--------------------------------------------------
 # set the correct timezone on ubuntu
-timedatectl set-timezone Africa/Kigali
+timedatectl set-timezone Europa/Berlin
 timedatectl
 
 #--------------------------------------------------
@@ -229,10 +229,10 @@ if [ $IS_ENTERPRISE = "True" ]; then
   # Odoo 16: https://www.soladrive.com/downloads/enterprise-16.0.tar.gz
   
   echo -e "\n======== Adding some enterprise modules ============="
-  wget https://www.soladrive.com/downloads/enterprise-16.0.tar.gz
-  tar -zxvf enterprise-16.0.tar.gz
-  cp -rf odoo-16.0*/odoo/addons/* ${OE_HOME}/enterprise/addons
-  rm enterprise-16.0.tar.gz
+  wget https://www.soladrive.com/downloads/enterprise-15.0.tar.gz
+  tar -zxvf enterprise-15.0.tar.gz
+  cp -rf odoo-15.0*/odoo/addons/* ${OE_HOME}/enterprise/addons
+  rm enterprise-15.0.tar.gz
   chown -R $OE_USER:$OE_USER ${OE_HOME}/
 fi
 
